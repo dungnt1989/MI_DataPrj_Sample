@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="THMVNDataService" groupId="com.example.dataservice" version="1.0.0" type="service/dataservice" serverRole="DataServicesServer">
+        <file>dataservice/THMVNDataService.dbs</file>
+    </artifact>
+    <artifact name="THSalesDataService" groupId="com.example.dataservice" version="1.0.0" type="service/dataservice" serverRole="DataServicesServer">
+        <file>dataservice/THSalesDataService.dbs</file>
+    </artifact>
+</artifacts>

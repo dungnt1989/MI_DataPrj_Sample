@@ -1,0 +1,135 @@
+<data enableBatchRequests="true" name="THSalesDataService" serviceGroup="" serviceNamespace="">
+    <description/>
+     <config id="THSales">
+    	<property name="driverClassName">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+    	<property name="url">jdbc:sqlserver://VTHGPWAPP3.THGGLB.COM;databaseName=THSales;encrypt=true;trustServerCertificate=true;</property>
+    	<property name="username">UserLcap</property>
+    	<property name="password">user@THM123</property>
+  	</config>
+  	
+	<query id="GetAllArea" useConfig="THSales">
+        <sql>select Area , AreaName from v_MST_Area</sql>
+        <result element="MST_Area" rowName="Area">
+            <element column="Area" name="Area" xsdType="xs:string"/>
+            <element column="AreaName" name="AreaName" xsdType="xs:string"/>
+        </result>
+    </query>
+    
+	<resource method="GET" path="Area">
+        <call-query href="GetAllArea">
+        </call-query>
+    </resource>
+    
+    <resource method="POST" path="Area">
+        <call-query href="GetAllArea">
+        </call-query>
+    </resource>
+    
+    <query id="GetAllBranch" useConfig="THSales">
+        <sql>select Branch , BranchName from v_MST_Branch</sql>
+        <result element="MST_Branch" rowName="Branch">
+            <element column="Branch" name="Branch" xsdType="xs:string"/>
+            <element column="BranchName" name="BranchName" xsdType="xs:string"/>
+        </result>
+    </query>
+    
+	<resource method="GET" path="Branch">
+        <call-query href="GetAllBranch">
+        </call-query>
+    </resource>
+    
+    <resource method="POST" path="Branch">
+        <call-query href="GetAllBranch">
+        </call-query>
+    </resource>
+    
+    <query id="GetAllChannel" useConfig="THSales">
+        <sql>select DChannel , DChannelName from v_MST_Channel</sql>
+        <result element="MST_Channel" rowName="Channel">
+            <element column="DChannel" name="DChannel" xsdType="xs:string"/>
+            <element column="DChannelName" name="DChannelName" xsdType="xs:string"/>
+        </result>
+    </query>
+    
+	<resource method="GET" path="Channel">
+        <call-query href="GetAllChannel">
+        </call-query>
+    </resource> 
+    
+    <resource method="POST" path="Channel">
+        <call-query href="GetAllChannel">
+        </call-query>
+    </resource> 
+    
+    <query id="GetAllRegion" useConfig="THSales">
+        <sql>select Region , RegionName from v_MST_Region</sql>
+        <result element="MST_Region" rowName="Region">
+            <element column="Region" name="Region" xsdType="xs:string"/>
+            <element column="RegionName" name="RegionName" xsdType="xs:string"/>
+        </result>
+    </query>
+    
+	<resource method="GET" path="Region">
+        <call-query href="GetAllRegion">
+        </call-query>
+    </resource>  
+    
+    <resource method="POST" path="Region">
+        <call-query href="GetAllRegion">
+        </call-query>
+    </resource> 
+    
+    <query id="GetAllSalesOrg" useConfig="THSales">
+        <sql>select DChannel, Country, Branch, Region, Area, DChannelName, BranchName, 
+        RegionName, AreaName from v_SalesOrg</sql>
+        <result element="MST_SalesOrg" rowName="Relation">
+            <element column="DChannel" name="DChannel" xsdType="xs:string"/>
+            <element column="Country" name="Country" xsdType="xs:string"/>
+            <element column="Branch" name="Branch" xsdType="xs:string"/>
+            <element column="Region" name="Region" xsdType="xs:string"/>
+            <element column="Area" name="Area" xsdType="xs:string"/>
+            <element column="DChannelName" name="DChannelName" xsdType="xs:string"/>
+            <element column="BranchName" name="BranchName" xsdType="xs:string"/>
+            <element column="RegionName" name="RegionName" xsdType="xs:string"/>
+            <element column="AreaName" name="AreaName" xsdType="xs:string"/>
+        </result>
+    </query>
+    
+	<resource method="GET" path="info">
+        <call-query href="GetAllSalesOrg">
+        </call-query>
+    </resource>  
+    
+    <resource method="POST" path="info">
+        <call-query href="GetAllSalesOrg">
+        </call-query>
+    </resource> 
+   
+       		<query id="GetAllUserArea" useConfig="THSales">
+        <sql>select DChannel, Country, Area, AreaName, Region, RegionName, Branch, BranchName, MaNhanVien from v_MST_UserArea</sql>
+        <result element="MST_UserArea" rowName="Relation">
+            <element column="DChannel" name="DChannel" xsdType="xs:string"/>
+            <element column="Country" name="Country" xsdType="xs:string"/>
+            <element column="Branch" name="Branch" xsdType="xs:string"/>
+            <element column="Region" name="Region" xsdType="xs:string"/>
+            <element column="Area" name="Area" xsdType="xs:string"/>
+            <element column="BranchName" name="BranchName" xsdType="xs:string"/>
+            <element column="RegionName" name="RegionName" xsdType="xs:string"/>
+            <element column="AreaName" name="AreaName" xsdType="xs:string"/>
+			<element column="MaNhanVien" name="MaNhanVien" xsdType="xs:string"/>
+        </result>
+    </query>
+    
+	<resource method="GET" path="UserArea">
+        <call-query href="GetAllUserArea">
+        </call-query>
+    </resource>  
+    
+    <resource method="POST" path="UserArea">
+        <call-query href="GetAllUserArea">
+        </call-query>
+    </resource> 
+    
+    
+    
+</data>

@@ -1,0 +1,86 @@
+
+<data enableBatchRequests="true" name="THMVNDataService" serviceGroup="" serviceNamespace="">
+    <description/>
+     <config id="THMVN">
+    	<property name="driverClassName">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+    	<property name="url">jdbc:sqlserver://VTHGPWAPP3.THGGLB.COM;databaseName=THMVN;encrypt=true;trustServerCertificate=true;</property>
+    	<property name="username">UserLcap</property>
+    	<property name="password">user@THM123</property>
+  	</config>
+	<query id="GetAllNPP" useConfig="THMVN">
+        <sql>select CustCode, CustName, Address1, Address2, EmailAddress, SaleSupID, SaleSupName, ASMID, ASM, RSMID, RSM
+      , DChannel, Branch, BranchName, Region, RegionName, Area, AreaName, FullName, CustShortName from v_MST_NPP</sql>
+        <result element="MST_NPP" rowName="NPP">
+            <element column="CustCode" name="CustCode" xsdType="xs:string"/>
+            <element column="CustName" name="CustName" xsdType="xs:string"/>
+            <element column="Address1" name="Address1" xsdType="xs:string"/>
+            <element column="Address2" name="Address2" xsdType="xs:string"/>
+            <element column="EmailAddress" name="EmailAddress" xsdType="xs:string"/>
+            <element column="SaleSupID" name="SaleSupID" xsdType="xs:string"/>
+            <element column="SaleSupName" name="SaleSupName" xsdType="xs:string"/>
+            <element column="ASMID" name="ASMID" xsdType="xs:string"/>
+            <element column="ASM" name="ASM" xsdType="xs:string"/>
+            <element column="RSMID" name="RSMID" xsdType="xs:string"/>
+            <element column="RSM" name="RSM" xsdType="xs:string"/>
+            <element column="DChannel" name="DChannel" xsdType="xs:string"/>
+            <element column="Branch" name="Branch" xsdType="xs:string"/>
+            <element column="BranchName" name="BranchName" xsdType="xs:string"/>
+            <element column="Region" name="Region" xsdType="xs:string"/>
+            <element column="RegionName" name="RegionName" xsdType="xs:string"/>
+            <element column="Area" name="Area" xsdType="xs:string"/>
+            <element column="AreaName" name="AreaName" xsdType="xs:string"/>
+            <element column="FullName" name="FullName" xsdType="xs:string"/>
+            <element column="CustShortName" name="CustShortName" xsdType="xs:string"/>
+        </result>
+    </query>
+    
+    <resource method="GET" path="NPP">
+        <call-query href="GetAllNPP">
+        </call-query>
+    </resource>
+    
+    <resource method="POST" path="NPP">
+        <call-query href="GetAllNPP">
+        </call-query>
+    </resource>
+    
+    <query id="GetAllTHS" useConfig="THMVN">
+        <sql>select Ma_CH ,Ten_CH ,Dia_chi ,Dia_chi2 ,Email ,Ma_GSBH ,Ten_GSBH , ASM, Ten_ASM , Ma_CHTruong ,Ten_CHTruong ,NSM ,Ten_NSM ,DChannel 
+        , Mien, Ten_Mien, Vung, Ten_Vung, Khu_vuc, Ten_Khuvuc, Latitude, Longitude from v_MST_THS</sql>
+        <result element="MST_THS" rowName="THS">
+            <element column="Ma_CH" name="Ma_CH" xsdType="xs:string"/>
+            <element column="Ten_CH" name="Ten_CH" xsdType="xs:string"/>
+            <element column="Dia_chi" name="Dia_chi" xsdType="xs:string"/>
+            <element column="Dia_chi2" name="Dia_chi2" xsdType="xs:string"/>
+            <element column="Email" name="Email" xsdType="xs:string"/>
+            <element column="Ma_GSBH" name="Ma_GSBH" xsdType="xs:string"/>
+            <element column="Ten_GSBH" name="Ten_GSBH" xsdType="xs:string"/>
+            <element column="ASM" name="ASM" xsdType="xs:string"/>
+            <element column="Ten_ASM" name="Ten_ASM" xsdType="xs:string"/>
+            <element column="Ma_CHTruong" name="Ma_CHTruong" xsdType="xs:string"/>
+            <element column="Ten_CHTruong" name="Ten_CHTruong" xsdType="xs:string"/>
+            <element column="NSM" name="NSM" xsdType="xs:string"/>
+            <element column="Ten_NSM" name="Ten_NSM" xsdType="xs:string"/>
+            <element column="DChannel" name="DChannel" xsdType="xs:string"/>
+            <element column="Mien" name="Mien" xsdType="xs:string"/>
+            <element column="Ten_Mien" name="Ten_Mien" xsdType="xs:string"/>
+            <element column="Vung" name="Vung" xsdType="xs:string"/>
+            <element column="Ten_Vung" name="Ten_Vung" xsdType="xs:string"/>
+            <element column="Khu_vuc" name="Khu_vuc" xsdType="xs:string"/>
+            <element column="Ten_Khuvuc" name="Ten_Khuvuc" xsdType="xs:string"/>
+            <element column="Latitude" name="Latitude" xsdType="xs:string"/>
+            <element column="Longitude" name="Longitude" xsdType="xs:string"/>
+        </result>
+    </query>
+    
+	<resource method="GET" path="THS">
+        <call-query href="GetAllTHS">
+        </call-query>
+    </resource>
+    
+    <resource method="POST" path="THS">
+        <call-query href="GetAllTHS">
+        </call-query>
+    </resource>  
+    
+</data>
